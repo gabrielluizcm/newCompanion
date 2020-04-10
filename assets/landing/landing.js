@@ -1,4 +1,9 @@
 $(document).ready(function() {
+    // Máscara código partida
+    $('.codigo').mask('00000')
+
+    $('[data-toggle="tooltip"]').tooltip()
+
     $('#entrada').click(function () {
         idCriador = localStorage.getItem('creatorID')
         codPartida = $('#codPartida').val()
@@ -13,25 +18,37 @@ $(document).ready(function() {
                 console.log(retorno)
                 switch (retorno) {
                     case '1':
-                        Swal.fire(
-                            'Fechou todas!',
-                            'Vou te redirecionar para o controle da partida!',
-                            'success'
-                          )
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Fechou todas!',
+                            text: 'Vou te redirecionar pra partida como criador!',
+                            timer: 2000,
+                            timerProgressBar: true,
+                            showConfirmButton: false
+                        })
+                        setTimeout(function() {
+                            window.location.href = base_url+'partida/controle/'+codPartida
+                        }, 2000)
                         break
                     case '0':
-                        Swal.fire(
-                            'Fechou todas!',
-                            'Vou te redirecionar pra partida!',
-                            'success'
-                          )
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Fechou todas!',
+                            text: 'Vou te redirecionar pra partida!',
+                            timer: 2000,
+                            timerProgressBar: true,
+                            showConfirmButton: false
+                        })
+                        setTimeout(function() {
+                            window.location.href = base_url+'partida/jogador/'+codPartida
+                        }, 2000)
                         break
                     case '-1':
                         Swal.fire({
                             icon: 'error',
                             title: 'Oops...',
                             text: 'Não existe uma partida com esse código',
-                          })
+                        })
                 }
             }
         })

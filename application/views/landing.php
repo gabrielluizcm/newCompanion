@@ -22,10 +22,11 @@
 				</h5>
 					<div class="form-row justify-content-around">
 						<div class="col-6">
-							<input type="number" id="codPartida" name="codPartida" class="form-control" placeholder="Código da partida">
+							<input type="text" id="codPartida" name="codPartida" class="form-control codigo" placeholder="Código da partida" data-mask="00000">
 						</div>
 						<div class="col-6">
-							<input type="text" name="senha" id="senha" class="form-control" placeholder="Senha Mestra (opcional)" maxlength="10" required>
+							<input type="text" name="senha" id="senha" class="form-control" placeholder="Senha" maxlength="10" required 
+								data-toggle="tooltip" data-placement="top" title="Não precisa senha se tu for o criador da partida!">
 						</div>
 						<button type="submit" class="form-control btn btn-primary" id="entrada">Entrar na partida</button>
 					</div>
@@ -48,7 +49,7 @@
 							</select>
 						</div>
 						<div class="col-6">
-							<input type="text" name="senha" id="senha" class="form-control" placeholder="Senha Mestra" maxlength="10" required>
+							<input type="text" name="senha" id="senha" class="form-control" placeholder="Senha" maxlength="10" required>
 						</div>
 					</div>
 					<button type="submit" class="form-control btn btn-primary">Criar partida</button>

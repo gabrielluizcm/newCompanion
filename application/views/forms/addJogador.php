@@ -68,7 +68,7 @@
         <?php if (isset($jogadores) && $jogadores): ?>
             <div class="row justify-content-around">
                 <div class="col-6 text-center">
-                    <a class="btn btn-lg btn-primary" id="botaoIniciar" href="<?= site_url('partida/index/'.$partida->getCodPartida())?>">Iniciar Partida!</a>
+                    <a class="btn btn-lg btn-primary" id="botaoIniciar" href="<?= site_url('partida/controle/'.$partida->getCodPartida())?>">Iniciar Partida!</a>
                 </div>
             </div>
         <?php endif;?>

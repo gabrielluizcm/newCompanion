@@ -12,6 +12,7 @@ class Landing extends CI_Controller {
 	}
 
 	public function index()	{
+		
 		// Carrega a lista de jogos disponíveis
 		$data['listaJogos'] = $this->JogosModel->listaJogos();
 
