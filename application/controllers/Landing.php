@@ -3,6 +3,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Landing extends CI_Controller {
 
+	public function __construct() {
+		parent::__construct();
+		$this->load->view('modules/imports.php');
+		$this->load->helper('form');
+		$this->load->database();
+	}
+
 	/**
 	 * Index Page for this controller.
 	 *
@@ -18,8 +25,13 @@ class Landing extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
-	public function index()
-	{
-		$this->load->view('welcome_message');
+	public function index()	{
+		// Carrega a lista de jogos disponíveis
+		$this->load->model('Jogo');
+		$data['listaJogos'] = $this->Jogo->listaJogos();
+
+		// Seta na view e renderiza
+		$this->load->view('landing', $data);
 	}
 }
+?>
