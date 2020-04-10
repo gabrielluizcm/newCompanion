@@ -8,10 +8,12 @@ class PartidasModel extends CI_Model {
     private $codPartida;
     private $codJogo;
     private $senha;
+    private $hashCriador;
     private $mapping = [
         'codPartida' => 'codPartida',
         'codJogo'   => 'codJogo',
-        'senha' => 'senha'
+        'senha' => 'senha',
+        'hashCriador' => 'hashCriador'
     ];
 
     /**
@@ -31,8 +33,9 @@ class PartidasModel extends CI_Model {
      * @return PartidasModel
      */
     public function codigo($cod) {
-        $query = $this->db->where("{$this->primaryKey} = {$cod}")->get($this->table)->result_array()[0];
-        return $this->setAtributos($query);
+        $query = $this->db->where("{$this->primaryKey} = {$cod}")->get($this->table)->result_array();
+        if ($query)
+            return $this->setAtributos($query[0]);
     }
 
     /**
@@ -115,6 +118,26 @@ class PartidasModel extends CI_Model {
     public function setSenha($senha)
     {
         $this->senha = $senha;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of hashCriador
+     */ 
+    public function getHashCriador()
+    {
+        return $this->hashCriador;
+    }
+
+    /**
+     * Set the value of hashCriador
+     *
+     * @return  self
+     */ 
+    public function setHashCriador($hashCriador)
+    {
+        $this->hashCriador = $hashCriador;
 
         return $this;
     }

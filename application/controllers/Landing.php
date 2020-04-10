@@ -30,5 +30,16 @@ class Landing extends CI_Controller {
 		} else
 			redirect(site_url());
 	}
+
+	public function entrar() {
+		// Carrega a partida
+		if ($partida = $this->PartidasModel->clear()->codigo($this->input->post('codPartida')))
+			if ($partida->getHashCriador() == $this->input->post('idCriador') || $partida->getSenha() == $this->input->post('senha'))
+				echo 1;
+			else
+				echo 0;
+		else
+			echo -1;
+	}
 }
 ?>

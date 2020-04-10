@@ -1,5 +1,7 @@
 	<title>%nome%</title>
 	<link rel="stylesheet" href=<?=site_url('assets/landing/landing.css')?>>
+	<script src="<?=site_url('assets/landing/landing.js')?>"></script>
+	<script>let base_url = "<?=site_url()?>";</script>
 </head>
 <body>
 	<div class="container-fluid">
@@ -18,12 +20,15 @@
 				<h5 class="display-5">
 					<b>Você quer se juntar à uma partida?</b>
 				</h5>
-				<?= form_open('landing/entrar')?>
-					<div class="form-group">
-						<input type="number" id="codPartida" class="form-control" placeholder="Código da partida">
-						<button type="submit" class="form-control btn btn-primary">Entrar na partida</button>
+					<div class="form-row justify-content-around">
+						<div class="col-6">
+							<input type="number" id="codPartida" name="codPartida" class="form-control" placeholder="Código da partida">
+						</div>
+						<div class="col-6">
+							<input type="text" name="senha" id="senha" class="form-control" placeholder="Senha Mestra (opcional)" maxlength="10" required>
+						</div>
+						<button type="submit" class="form-control btn btn-primary" id="entrada">Entrar na partida</button>
 					</div>
-				<?= form_close(); ?>
 			</div>
 			<div class="col-10 col-md-4 opcao text-center">
 				<h5 class="display-5">
