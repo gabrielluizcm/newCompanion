@@ -18,30 +18,36 @@
 				<h5 class="display-5">
 					<b>Você quer se juntar à uma partida?</b>
 				</h5>
-				<?= form_open(site_url('landing/entrar'))?>
+				<?= form_open('landing/entrar')?>
 					<div class="form-group">
 						<input type="number" id="codPartida" class="form-control" placeholder="Código da partida">
-						<button type="submit" class="form-control btn btn-sm btn-primary">Entrar na partida</button>
+						<button type="submit" class="form-control btn btn-primary">Entrar na partida</button>
 					</div>
-				<?php form_close(); ?>
+				<?= form_close(); ?>
 			</div>
 			<div class="col-10 col-md-4 opcao text-center">
 				<h5 class="display-5">
 					<b>Ou criar uma nova?</b>
 				</h5>
-				<?=  form_open(site_url('landing/criar'))?>
-					<div class="form-group">
-						<select name="codJogo"
-								id="codJogo"
-								class="form-control selectpicker">
-						<?php foreach ($listaJogos as $jogo): ?>
-							<option value="" selected>Selecione um jogo</option>
-							<option value="<?= $jogo->getCod(); ?>"><?= $jogo->getNome(); ?></option>
-						<?php endforeach;?>
-						</select>
-						<button type="submit" class="form-control btn btn-sm btn-primary">Entrar na partida</button>
+				<?= form_open('landing/criar')?>
+					<div class="form-row justify-content-around">
+						<div class="col-6">
+							<select name="codJogo"
+									id="codJogo"
+									class="form-control custom-select"
+									required>
+									<option value="">Selecione um jogo</option>
+								<?php foreach ($listaJogos as $jogo): ?>
+									<option value="<?= $jogo->getCod(); ?>"><?= $jogo->getNome(); ?></option>
+								<?php endforeach;?>
+							</select>
+						</div>
+						<div class="col-6">
+							<input type="text" name="senha" id="senha" class="form-control" placeholder="Senha Mestra" maxlength="10" required>
+						</div>
 					</div>
-				<?php form_close();?>
+					<button type="submit" class="form-control btn btn-primary">Criar partida</button>
+				<?= form_close();?>
 			</div>
 		</div>
 	</div>
