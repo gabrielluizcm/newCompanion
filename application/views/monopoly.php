@@ -52,7 +52,7 @@
 						</tr>
 						<!-- MODAIS -->
 						<!-- ADD -->
-						<div class="modal fade" id="modalAdd<?=$jogador->getCodJogador()?>" tabindex="-1" role="dialog" aria-labelledby="tituloModalAdd" aria-hidden="true">
+						<div class="modal fade col-12" id="modalAdd<?=$jogador->getCodJogador()?>" tabindex="-1" role="dialog" aria-labelledby="tituloModalAdd" aria-hidden="true">
 							<div class="modal-dialog modal-dialog-centered" role="document">
 								<div class="modal-content">
 									<div class="modal-header">
@@ -82,7 +82,7 @@
 							</div>
 						</div>
 						<!-- SUB -->
-						<div class="modal fade" id="modalSub<?=$jogador->getCodJogador()?>" tabindex="-1" role="dialog" aria-labelledby="tituloModalSub" aria-hidden="true">
+						<div class="modal fade col-12" id="modalSub<?=$jogador->getCodJogador()?>" tabindex="-1" role="dialog" aria-labelledby="tituloModalSub" aria-hidden="true">
 							<div class="modal-dialog modal-dialog-centered" role="document">
 								<div class="modal-content">
 									<div class="modal-header">
@@ -112,7 +112,7 @@
 							</div>
 						</div>
 						<!-- TRANSFER -->
-						<div class="modal fade" id="modalTransfer<?=$jogador->getCodJogador()?>" tabindex="-1" role="dialog" aria-labelledby="tituloModalTransfer" aria-hidden="true">
+						<div class="modal fade col-12" id="modalTransfer<?=$jogador->getCodJogador()?>" tabindex="-1" role="dialog" aria-labelledby="tituloModalTransfer" aria-hidden="true">
 							<div class="modal-dialog modal-dialog-centered" role="document">
 								<div class="modal-content">
 									<div class="modal-header">
