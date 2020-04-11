@@ -23,7 +23,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://localhost/newCompanion';
+switch(ENVIRONMENT){
+    case 'development':    
+        $config['base_url'] = 'http://localhost/newCompanion';
+    break;
+    default:
+        $config['base_url'] = 'https://gamecompanion.000webhostapp.com';
+}
 
 /*
 |--------------------------------------------------------------------------
