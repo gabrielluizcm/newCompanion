@@ -50,6 +50,20 @@ class Jogadores extends CI_Controller {
         redirect('jogadores/index/'.$this->input->post('codPartida'));
     }
 
+    /**
+     * remove um jogador e retorna a contagem de jogadores restante na partida
+     */
+    public function remover() {
+        $jogador = $this->JogadoresModel->clear()->key($this->input->post('codJogador'));
+        if ($jogador)
+            $jogador->remove();
+            
+        if ($jogadores = $this->JogadoresModel->clear()->partida($this->input->post('codPartida')))
+            echo count($jogadores);
+        else
+            echo 0;
+    }
+
     public function adicionarPontuacao() {
         // Carrega o jogador
         $jogador = $this->JogadoresModel->clear()->key($this->input->post('codJogador'));

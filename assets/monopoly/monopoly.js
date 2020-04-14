@@ -34,8 +34,8 @@ $(document).ready(function () {
 
     // Adicionar valor
     $('button[name="deposito"]').click(function () {
-        codJogador = $(this).parent().parent().find('input[type="hidden"]').val()
-        valor = $(this).parent().parent().find('input[type="text"]').val()
+        codJogador = $(this).parents('.modal-content').find('input[type="hidden"]').val()
+        valor = $(this).parents('.modal-content').find('input[type="text"]').val()
         url = base_url + '/jogadores/adicionarPontuacao'
         campoValor = '#valorJogador' + codJogador
         $.ajax({
@@ -55,8 +55,8 @@ $(document).ready(function () {
 
     // Subtrair valor
     $('button[name="saque"]').click(function () {
-        codJogador = $(this).parent().parent().find('input[type="hidden"]').val()
-        valor = $(this).parent().parent().find('input[type="text"]').val()
+        codJogador = $(this).parents('.modal-content').find('input[type="hidden"]').val()
+        valor = $(this).parents('.modal-content').find('input[type="text"]').val()
         url = base_url + '/jogadores/diminuirPontuacao'
         campoValor = '#valorJogador' + codJogador
         $.ajax({
@@ -76,9 +76,9 @@ $(document).ready(function () {
 
     // Transferir valor
     $('button[name="transfere"]').click(function () {
-        codJogador = $(this).parent().parent().find('input[type="hidden"]').val()
-        jogadorTransf = $(this).parent().parent().find('select').val()
-        valor = $(this).parent().parent().find('input[type="text"]').val()
+        codJogador = $(this).parents('.modal-content').find('input[type="hidden"]').val()
+        jogadorTransf = $(this).parents('.modal-content').find('select').val()
+        valor = $(this).parents('.modal-content').find('input[type="text"]').val()
         url = base_url + '/jogadores/transferirPontuacao'
         campoValorOrigem = '#valorJogador' + codJogador
         campoValorDestino = '#valorJogador' + jogadorTransf

@@ -25,9 +25,9 @@ class JogadoresModel extends CI_Model {
      * @return JogadoresModel or false
      */
     public function key ($cod) {
-        $result = $this->db->where("{$this->primaryKey} = {$cod}")->get($this->table)->result_array()[0];
+        $result = $this->db->where("{$this->primaryKey} = {$cod}")->get($this->table)->result_array();
         if ($result) {
-            $jogador = $this->setAtributos($result);
+            $jogador = $this->setAtributos($result[0]);
             return $jogador;
         }
         else
@@ -64,8 +64,6 @@ class JogadoresModel extends CI_Model {
 
     /**
      * atualiza um jogador no banco
-     * 
-     * @param int cod
      */
     public function update() {
         $this->db->where("{$this->primaryKey} = {$this->codJogador}");
@@ -73,6 +71,14 @@ class JogadoresModel extends CI_Model {
         foreach ($this->mapping as $key => $value)
             $data[$key] = $this->$value;
         $this->db->update($this->table, $data);
+    }
+
+    /**
+     * remove um registro de jogador
+     */
+    public function remove() {
+        $this->db->where("{$this->primaryKey} = {$this->codJogador}");
+        $this->db->delete($this->table);
     }
 
     /**

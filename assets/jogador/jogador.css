@@ -1,11 +1,11 @@
 body {
     overflow-x: hidden;
 }
+i {
+    cursor: pointer;
+}
 .container-fluid {
     padding: 5rem 0;
-}
-#boasVindas {
-    margin-top: 2rem;
 }
 .opcao {
     background-color: #DDD;
@@ -20,4 +20,13 @@ body {
 #botaoIniciar {
     margin-top: 5rem;
     color:white;
+}
+#boasVindas {
+    margin-top: 2rem;
+}
+
+@media only screen and (max-width: 768px) {
+    .opcao {
+        height: 300px;
+    }
 }

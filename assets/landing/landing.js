@@ -49,6 +49,9 @@ $(document).ready(function() {
                             title: 'Oops...',
                             text: 'Não existe uma partida com esse código',
                         })
+                    default:
+                        // fix erro do servidor 000webhost
+                        $('#entrada').click()
                 }
             }
         })
