@@ -16,7 +16,7 @@
 		</div>
 		<div class="col-12">
 			<h4 class="display-4 text-center" id="boasVindas">
-			Partida <?= $partida->getCodPartida() ?> / Senha <?= $partida->getSenha() ?>
+			Partida <?= $partida->getCodPartida(); if($criador):?> / Senha <?= $partida->getSenha(); endif;?>
 			</h4>
 		</div>
 		<div class="row justify-content-around">
