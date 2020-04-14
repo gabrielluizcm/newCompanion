@@ -35,7 +35,6 @@
 				<h5 class="display-5">
 					<b>Ou criar uma nova?</b>
 				</h5>
-				<?= form_open('landing/criar')?>
 					<div class="form-row justify-content-around">
 						<div class="col-6">
 							<select name="codJogo"
@@ -49,11 +48,10 @@
 							</select>
 						</div>
 						<div class="col-6">
-							<input type="text" name="senha" id="senha" class="form-control" placeholder="Senha" maxlength="10" required>
+							<input type="text" name="senha" id="senhaCriacao" class="form-control" placeholder="Senha" maxlength="10" required>
 						</div>
 					</div>
-					<button type="submit" class="form-control btn btn-primary">Criar partida</button>
-				<?= form_close();?>
+					<button type="button" class="form-control btn btn-primary" id="criarPartida">Criar partida</button>
 			</div>
 		</div>
 	</div>

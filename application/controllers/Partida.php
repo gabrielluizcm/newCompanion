@@ -9,9 +9,17 @@ class Partida extends CI_Controller {
 		$this->load->helper('form');
 		$this->load->database();
 		$this->load->model(['JogosModel', 'PartidasModel', 'JogadoresModel']);
-	}
+    }
+    
+    // Controla o acesso
+    public function index($codPartida) {
+        if ($this->input->post('isCriador') == 1)
+            $this->controle($codPartida);
+        else
+            $this->jogador($codPartida);
+    }
 
-	public function controle($codPartida)	{
+	private function controle($codPartida)	{
         // Carrega os dados
         $partida = $this->PartidasModel->clear()->codigo($codPartida);
         $jogo = $this->JogosModel->clear()->codigo($partida->getCodJogo());
@@ -29,7 +37,7 @@ class Partida extends CI_Controller {
         $this->load->view($jogo->getNomeView(), $dados);
     }
 
-    public function jogador($codPartida) {
+    private function jogador($codPartida) {
         // Carrega os dados
         $partida = $this->PartidasModel->clear()->codigo($codPartida);
         $jogo = $this->JogosModel->clear()->codigo($partida->getCodJogo());

@@ -1,4 +1,4 @@
-<title>%nome%</title>
+	<title>%nome%</title>
     <link rel="stylesheet" href="<?=site_url('assets/monopoly/monopoly.css')?>">
 	<script src="<?=site_url('assets/monopoly/monopoly.js')?>"></script>
 	<script>

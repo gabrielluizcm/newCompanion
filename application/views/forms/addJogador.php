@@ -22,8 +22,8 @@
 		<div class="row justify-content-around">
 			<div class="col-10 col-md-4 opcao text-center">
 				<h5 class="display-5">
-                    <?php if ($jogadores && $jogo->getNome() == 'Truco'):
-                            if (count($jogadores) == 2):  // Máximo de player no truco ?>
+                    <?php if ($jogo->getNome() == 'Truco'):
+                            if ($jogadores && count($jogadores) == 2):  // Máximo de player no truco ?>
                                 <b>Máximo de equipes adicionados!</b>
                             <?php else: ?>
                                 <b>Adicionar equipe</b>
@@ -88,7 +88,7 @@
         <div class="row justify-content-around">
             <div class="col-6 text-center">
                 <button class="btn btn-lg btn-primary" id="botaoIniciar"
-                    <?= !(isset($jogadores) && count($jogadores) >= 2) ? 'disabled' : ''?>>
+                    <?= !(isset($jogadores) && count((array)$jogadores) >= 2) ? 'disabled' : ''?>>
                     Iniciar Partida!
                 </button>
             </div>

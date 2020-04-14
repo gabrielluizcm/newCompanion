@@ -26,8 +26,10 @@ class Landing extends CI_Controller {
 			$partida = new PartidasModel;
 			$partida->setCodJogo($this->input->post('codJogo'));
 			$partida->setSenha($this->input->post('senha'));
+			$partida->setHashCriador($this->input->post('idCriador'));
 			$partida->save();
-			redirect('jogadores/index/'.$partida->getCodPartida());
+			// Retorna o código da partida para o ajax
+			echo $partida->getCodPartida();
 		} else
 			redirect(site_url());
 	}

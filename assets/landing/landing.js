@@ -1,4 +1,5 @@
 $(document).ready(function() {
+
     // Máscara código partida
     $('.codigo').mask('00000')
 
@@ -15,7 +16,6 @@ $(document).ready(function() {
             data: {idCriador, codPartida, senha},
             complete: function(resposta) {
                 retorno = resposta.responseText.split('<')[0]
-                console.log(retorno)
                 switch (retorno) {
                     case '1':
                         Swal.fire({
@@ -27,7 +27,13 @@ $(document).ready(function() {
                             showConfirmButton: false
                         })
                         setTimeout(function() {
-                            window.location.href = base_url+'partida/controle/'+codPartida
+                            url = base_url + 'partida/index/'+codPartida;
+                            form = $('<form action="' + url + '" method="post">' +
+                                        '<input type="hidden" name="isCriador" value="1" />' +
+                                    '</form>');
+                            $('body').append(form)
+                            form.submit();
+                            $(form).remove();
                         }, 2000)
                         break
                     case '0':
@@ -40,7 +46,7 @@ $(document).ready(function() {
                             showConfirmButton: false
                         })
                         setTimeout(function() {
-                            window.location.href = base_url+'partida/jogador/'+codPartida
+                            window.location.href = base_url+'partida/index/'+codPartida
                         }, 2000)
                         break
                     case '-1':
@@ -55,5 +61,37 @@ $(document).ready(function() {
                 }
             }
         })
+    })
+
+    $('#criarPartida').click(function () {
+        if ((senha = $('#senhaCriacao').val()) && (codJogo = $('#codJogo').val())) {
+            url = base_url + 'landing/criar'
+            Swal.fire({
+                icon: 'success',
+                title: 'Partida criada!',
+                text: 'Agora vamos cadastrar os jogadores!',
+                timer: 2000,
+                timerProgressBar: true,
+                showConfirmButton: false
+            })
+            setTimeout(function() {
+                $.ajax({
+                    url: url,
+                    type: 'post',
+                    data: {senha, codJogo, idCriador},
+                    complete: function(resposta) {
+                        codPartida = resposta.responseText.split('<')[0]
+                        window.location.href = base_url + 'jogadores/index/' + codPartida
+                    }
+                })
+            },2000)
+        }
+        else {
+            Swal.fire({
+                icon: 'error',
+                title: 'Ops! Campos em branco!',
+                text: 'Você deve escolher um jogo e informar uma senha!',
+            })
+        }
     })
 })
