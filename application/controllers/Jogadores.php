@@ -111,7 +111,26 @@ class Jogadores extends CI_Controller {
 
         // Retorna os novos valores por JSON
         echo json_encode($playerOrigem->getPontuacao().' '.$playerDestino->getPontuacao());
+    }
 
+    public function reiniciarPartida() {
+        // Carrega os jogadores
+        $jogadores = $this->JogadoresModel->clear()->partida($this->input->post('codPartida'));
+
+        // Carrega a partida
+        $partida = $this->PartidasModel->clear()->codigo($this->input->post('codPartida'));
+
+        // Carrega o jogo
+        $jogo = $this->JogosModel->clear()->codigo($partida->getCodJogo());
+
+        // Reseta os placares da partida
+        foreach($jogadores as $jogador){
+            $jogador->setPontuacao($jogo->getPontuacaoInicial());
+            $jogador->update();
+        }
+
+        // Retorna a pontuação inicial
+        echo $jogo->getPontuacaoInicial();
     }
 
 }

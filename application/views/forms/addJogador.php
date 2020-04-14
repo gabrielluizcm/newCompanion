@@ -67,7 +67,7 @@
                 <div class="row justify-content-around">
                     <?php if (isset($jogadores) && $jogadores) :?>
                         <?php foreach ($jogadores as $jogador): ?>
-                            <div name="jogadorIncluso" class="col-3">
+                            <div name="jogadorIncluso" class="col-12 col-sm-3">
                                 <span style="color: <?=$jogador->getCor()?>">
                                     <input type="hidden" value="<?= $jogador->getCodJogador() ?>">
                                     <?=$jogador->getNome();?>

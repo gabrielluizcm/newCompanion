@@ -1,0 +1,115 @@
+.titulo {
+    position: absolute;
+    left: 0; 
+    right: 0; 
+    margin-left: auto; 
+    margin-right: auto; 
+    width: 100%;
+    z-index: 200;
+    top: 1em;
+}
+.titulo span {
+    background-color: white;
+    padding: 7px;
+    border-radius: 5px;
+}
+.equipe {
+    height: 100vh;
+}
+.nomeEquipe, .pontuacao {
+    line-height: 1em;
+}
+.nomeEquipe {
+    font-size: 10rem;
+}
+.pontuacao {
+    font-size: 40rem;
+}
+.swal2-cancel {
+    margin-right: 20px;
+}
+#botaoModalAjuda {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    z-index: 1000;
+    font-size: 5rem;
+}
+#botaoModalInfo {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    z-index: 1000;
+    font-size: 5rem;
+    display: none;
+}
+
+@media only screen and (max-width: 768px) and (orientation: portrait){
+    .titulo {
+        display: none;
+    }
+    .equipe {
+        height: 50vh;
+        display: grid;
+    }
+    .nomeEquipe {
+        font-size: 2rem;
+        padding-top: 10px;
+    }
+    .pontuacao {
+        font-size: 8em;
+    }
+    #botaoModalAjuda, #botaoModalInfo {
+        font-size: 2rem;
+    }
+    #botaoModalInfo {
+        display: inline-block;
+    }
+}
+@media only screen and (max-width: 1024px) and (orientation: landscape) {
+    .titulo {
+        display: none;
+    }
+    .equipe {
+        max-width: 50vw;
+        display: grid;
+    }
+    .nomeEquipe {
+        font-size: 2rem;
+        padding-top: 10px;
+    }
+    .pontuacao {
+        font-size: 8em;
+    }
+    #botaoModalAjuda, #botaoModalInfo {
+        font-size: 2rem;
+    }
+}
+
+/* Lista Modal cc*/
+ol {
+    list-style-type: none;
+    counter-reset: item;
+    margin: 0;
+    padding: 0;
+  }
+  
+  ol > li {
+    display: table;
+    counter-increment: item;
+    margin-bottom: 0.6em;
+  }
+  
+  ol > li:before {
+    content: counters(item, ".") ". ";
+    display: table-cell;
+    padding-right: 0.6em;    
+  }
+  
+  li ol > li {
+    margin: 0;
+  }
+  
+  li ol > li:before {
+    content: counters(item, ".") " ";
+  }
